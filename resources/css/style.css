@@ -1,0 +1,242 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.preload * {
+    transition: none !important;
+    animation: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    background-color: #273849;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    align-items: center;
+}
+
+.form-box {
+    background-color: #1f2b3b;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    align-items: center;
+    border-radius: 20px;
+    height: 70%;
+    width: 40%;
+
+    box-shadow: 1px -1px 40px 15px #161f29;
+    justify-content: space-around;
+}
+
+.form-header {
+    color: #ffac00;
+    font-weight: bold;
+
+}
+
+.form-header h1 {
+    opacity: 0;
+    transform: translateX(-20px);
+
+    animation: showFormLeft 1s ease-in-out 1 forwards;
+}
+
+@keyframes showFormLeft {
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.form-body {
+    width: 100%;
+}
+
+.form-body form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.form-group {
+    margin: 5px 0 5px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(100px);
+    animation: showFormUp 1s ease-in-out 1 forwards;
+    animation-delay: 0.5s;
+    position: relative;
+}
+
+@keyframes showFormUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-group input {
+    padding: 10px;
+    border-radius: 25px;
+    background-color: #36404e;
+    outline: none;
+    border: none;
+    color: white;
+    width: 60%;
+    margin: auto;
+    display: block;
+    font: 13px;
+
+}
+
+
+
+.form-group input::placeholder {
+    color: #eae5ac;
+    font-size: 10px;
+}
+
+.submit {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-btn {
+    margin-top: 5px;
+    background-color: #fe9000;
+    border: none;
+    padding: 10px;
+    border-radius: 250px;
+    color: white;
+    width: 60%;
+    cursor: pointer;
+    transition: .5s;
+    opacity: 0;
+    transform: translateY(40px);
+
+    animation: showFormUp 1s ease-in-out forwards;
+    animation-delay: 1.1s;
+
+    /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+}
+
+.submit-btn:hover {
+
+    box-shadow: 1px 1px 20px #d38f5f;
+}
+
+.form-group label {
+    position: absolute;
+    left: 0;
+    top: 0%;
+    transform: translate(-50%, -50%);
+    color: #eae5ac;
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.form-group input:focus {
+    box-shadow: 0px 0px 8px 0px #fe9000;
+}
+
+.form-group input:focus+label
+
+/* .form-group input:valid + label */
+    {
+    top: -2px;
+    opacity: 1;
+    left: 40%;
+    font-size: 10px;
+    color: #ffbf00;
+    font-weight: bold;
+    background-color: transparent;
+    /* transform: translate(-50%, -120%); */
+    border-radius: 20px;
+}
+
+.form-footer {
+    color: #ffdb8f;
+}
+
+.form-footer .side-btn {
+    text-decoration: none;
+    background-color: #2d364370;
+    padding: 4px 5px;
+    border-radius: 12px;
+    color: #ffac00;
+
+    display: inline-block;
+
+    animation: sideFloat 1.2s ease-in-out infinite forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes sideFloat {
+
+    0% {
+        transform: translateX(1px);
+    }
+
+    50% {
+        transform: translateX(-1px);
+    }
+
+    100% {
+        transform: translateX(1px);
+    }
+}
+
+/* .bar {
+    position: absolute;
+    width: 8px;
+    height: 35px;
+    background: #4a5f7f;
+    border-radius: 4px;
+    top: 0;
+    left: 50%;
+    transform-origin: center 170px;
+    transition: background 0.3s ease;
+}
+
+.bar.active {
+    background: linear-gradient(180deg,
+            #ff8c00);
+    box-shadow: 0 0 20px #ffa500,
+
+        rgba(255, 165, 0, 0.8);
+}
+
+.circle-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* animation: rotate 20s linear infinite; */
+
+
+/*
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+} */
