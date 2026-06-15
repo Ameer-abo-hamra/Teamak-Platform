@@ -4,9 +4,19 @@
     box-sizing: border-box;
 }
 
-.preload * {
-    transition: none !important;
-    animation: none !important;
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.active {
+    background-color: blue;
+    border-radius: 10px;
+    color: white !important;
+    font-weight: bold;
 }
 
 html {

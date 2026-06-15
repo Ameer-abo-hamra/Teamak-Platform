@@ -1,6 +1,10 @@
 /* @import 'tailwindcss'; */
 @import 'style.css';
-
+@import 'grid.css';
+@import 'header.css';
+@import 'aside.css';
+@import 'var.css';
+@import "@fortawesome/fontawesome-free/css/all.min.css";
 @import 'toast.css';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -15,5 +19,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&display=swap');
 
 body {
-    font-family: 'Cairo', sans-serif;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+
 }

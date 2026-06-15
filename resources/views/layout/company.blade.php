@@ -1,23 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.app')
 
-<head>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+@section('title', 'Company Manegment')
+@section('header')
+    <x-layout.header title="Dashboard" subtitle="Welcome back" searchRoute="#" logoutRoute="company.logout" />
+@endsection
+@section('aside-bar')
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title', 'Company Management')</title>
-    {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-</head>
+    <x-layout.sidebar title="Management" :items="config('sidebar.company')">
 
-
-<body>
-
-    @include('shared.partials.error-handiling')
-    @include('shared.partials.company-navbar')
-    @yield('content')
-</body>
-
-</html>
+        {{ auth('company')->user()->Company_name ?? '' }}
+    </x-layout.sidebar>
+@endsection

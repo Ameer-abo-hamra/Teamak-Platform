@@ -73,4 +73,15 @@ class CompanyAuth extends Controller
         return redirect()->intended(route('company.index'))
             ->with('success', 'Account created successfully.');
     }
+
+    public function logout(Request $request)
+    {
+        Auth::guard('company')->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('company.login')
+            ->with('success', 'Logged out successfully.');
+    }
 }

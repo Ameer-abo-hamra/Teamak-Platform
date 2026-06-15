@@ -1,4 +1,4 @@
-@extends('layout.company')
+@extends('layout.auth')
 
 @section('title', 'Company Login')
 

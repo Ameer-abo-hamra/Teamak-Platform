@@ -12,7 +12,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return "hi";
+        return      view('company.index');
     }
 
     /**
@@ -44,7 +44,7 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+
     }
 
     /**

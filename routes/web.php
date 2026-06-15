@@ -13,6 +13,11 @@ Route::post('/comapny-register', [CompanyAuth::class, 'signUp'])->name('company.
 Route::middleware("auth:company")->group(function () {
 
     Route::resource('/company', CompanyController::class);
+    Route::post('/logout', [CompanyAuth::class, 'logout'])->name('company.logout');
 
 });
 
+
+Route::get('learn-grid', function () {
+    return view('learn-grid');
+});
