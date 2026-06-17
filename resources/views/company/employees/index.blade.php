@@ -14,7 +14,7 @@
             <span>total 8 , active 2</span>
         </div>
         <div class="right">
-            <button id="add-employee" class="btn-primary"><i class="fa-solid fa-plus"></i>add employee</button>
+            <button id="add-employee" class="btn-primary"><i class="fa-solid fa-plus"></i>Invite Employee</button>
         </div>
     </div>
 

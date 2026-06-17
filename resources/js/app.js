@@ -1,7 +1,7 @@
 import './bootstrap';
 import './js.js';
 import './employee-invitation.js'
-export function showToast(message, type = 'success') {
+export function showToast(message, type = 'success' , $time =3000) {
     const colors = {
         success: '#16a34a',
         error: '#dc2626',
@@ -27,7 +27,7 @@ export function showToast(message, type = 'success') {
 
     setTimeout(() => {
         toast.remove();
-    }, 3000);
+    }, $time);
 }
 
 

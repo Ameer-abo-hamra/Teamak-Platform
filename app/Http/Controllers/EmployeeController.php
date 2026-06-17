@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Invitation;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -61,5 +62,12 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee)
     {
         //
+    }
+
+    public function acceptInvitation($token)
+    {
+        $invitation = Invitation::where('invitation_token', $token)->firstOrFail();
+
+        return $invitation->company;
     }
 }

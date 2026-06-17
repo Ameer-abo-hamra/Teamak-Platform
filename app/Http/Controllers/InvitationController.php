@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Log;
 use Notification;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 use App\Models\Invitation;
 class InvitationController extends Controller
 {
@@ -18,10 +19,10 @@ class InvitationController extends Controller
     {
         try {
 
-            // 1. Validation
+
             $request->validate([
                 'employee_email' => 'required|email',
-                'job_title' => 'nullable|string',
+                'job_title' => 'required|string',
                 'role' => 'nullable|string',
                 'description' => 'nullable|string',
             ]);
@@ -30,10 +31,10 @@ class InvitationController extends Controller
 
             $company = auth('company')->user();
 
-            // 2. Generate unique token (64 chars)
+
             $token = Str::random(64);
 
-            // 3. Save invitation in DB
+
             $invitation = Invitation::create([
                 'company_id' => $company->id,
                 'employee_email' => $email,
@@ -42,12 +43,12 @@ class InvitationController extends Controller
                 'invitation_token' => $token,
             ]);
 
-            // 4. Create invitation link
+
             $invitationLink = url('/accept-invitation/' . $token);
 
 
 
-            // 5. Send Notification
+
             Notification::route('mail', $email)
                 ->notify(new EmployeeInvitation(
                     $invitationLink,
@@ -55,7 +56,7 @@ class InvitationController extends Controller
                     $request->job_title,
                     $request->department_id
                     ,
-                    $request->description ?? "" , 
+                    $request->description ?? "",
                 ));
 
             Log::info('Invitation email sent', [
@@ -67,15 +68,20 @@ class InvitationController extends Controller
                 'type' => 'success'
             ], 200);
 
-        } catch (\Exception $e) {
-
-            Log::error('Invitation failed', [
-                'error' => $e->getMessage(),
-                'line' => $e->getLine(),
-            ]);
+        } catch (ValidationException $e) {
 
             return response()->json([
-                'message' => 'Something went wrong',
+                'message' => 'Validation failed',
+                'errors' => $e->errors(),
+                'type' => 'validation_error'
+            ], 422);
+
+        } catch (\Exception $e) {
+
+
+
+            return response()->json([
+                'message' => $e->getMessage(),
                 'type' => 'error'
             ], 500);
         }

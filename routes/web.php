@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\CompanyAuth;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InvitationController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,4 @@ Route::middleware("auth:company")->group(function () {
 
 
 
+Route::get('accept-invitation/{token}' , [EmployeeController::class , 'acceptInvitation'])->name('accept');

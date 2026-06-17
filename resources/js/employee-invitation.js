@@ -29,16 +29,22 @@ async function handleInviteSubmit(event) {
             throw data;
         }
         form.reset();
-        // ✅ SUCCESS TOAST
+    
         showToast(data.message, data.type || 'success');
         closeModal('invite-modal')
 
     } catch (error) {
-        // ❌ ERROR TOAST
-        showToast(
-            error.message || 'Unexpected error',
-            error.type || 'error'
-        );
+        if (error.type === 'validation_error') {
+            Object.values(error.errors).forEach(messages => {
+                messages.forEach(msg => {
+                    showToast(msg, 'error', 5000);
+                });
+            });
+        } else
+            showToast(
+                error.message || 'Unexpected error',
+                error.type || 'error'
+            );
     }
 }
 function getCsrfToken() { return document.querySelector('meta[name="csrf-token"]')?.content; }
