@@ -1,0 +1,166 @@
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.r-m {
+    font-size: 14px;
+    border: 1px solid var(--button-bg-color);
+    background: #2563eb17;
+    padding: 3px;
+    border-radius: 5px;
+    color: var(--button-bg-color);
+}
+
+.r-e {
+    font-size: 14px;
+    border: 1px solid #ffc61d42;
+    background: #ffbf000a;
+    padding: 3px;
+    border-radius: 5px;
+    color: #ffc61d;
+}
+
+.s-active {
+    background: #00800063;
+    padding: 3px;
+    color: green;
+    font-size: 13px;
+    border-radius: 5px;
+    border: 1px solid #00800052;
+}
+
+.s-in-active {
+    background: #ff00001a;
+    padding: 3px;
+    color: red;
+    font-size: 13px;
+    border-radius: 5px;
+    border: 1px solid #ff000040;
+}
+
+.btn-primary {
+    border: none;
+    padding: 10px;
+    background: var(--button-bg-color);
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .2s;
+}
+.delete:hover {
+    color: red;
+    font-weight: bold;
+}
+.update:hover {
+    color: gold;
+}
+.show-row:hover {
+    color: blue;
+}
+.delete , .update , .show-row {
+    transition: all .2s;
+}
+.btn-primary:hover {
+    transform: scale(1.1);
+
+}
+
+.search-employee {
+    display: flex;
+    gap: 10px;
+    background: white;
+    padding: 14px;
+    margin-top: 20px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0px 0px 7px 0px #bfbfbf;
+}
+
+.search-employee input {
+    flex-basis: 70%;
+    outline: none;
+    border: none;
+    background: var(--content-section-bg-color);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+.select {
+     padding: 8px;
+    border: none;
+    background: var(--content-section-bg-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.employee-table {
+    margin-top: 20px;
+}
+
+.employee-table table {
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+.employee-table table thead {
+    background-color: #ecf0f4;
+}
+
+.employee-table table thead tr th {
+    text-align: start;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.employee-table table tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: all .15s;
+    cursor: pointer;
+}
+
+.employee-table table tr td,
+.employee-table table th {
+    padding: 10px;
+
+}
+
+
+.employee-table table tbody tr:hover {
+    background-color: #fffbac73;
+    border-bottom-color: gold;
+}
+
+.employee-table table tbody tr .first {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.employee-table table tbody tr .first .left {
+    padding: 5px;
+    border-radius: 50%;
+    color: white;
+    background: green;
+    margin-right: 10px;
+}
+
+.employee-table table tbody tr .first small {
+    color: #6a6f4d;
+}
+
+.employee-table table tbody tr .second,
+.employee-table table tbody tr .third {
+    font-size: 14px;
+    font-weight: 200;
+}

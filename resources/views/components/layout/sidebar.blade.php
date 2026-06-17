@@ -22,8 +22,8 @@
                     <li class="{{ request()->routeIs($item['route']) ? 'active' : '' }}">
 
                         <i class="{{ $item['icon'] }}"></i>
-{{-- {{ route($item['route']) }} --}}
-                        <a href="#">
+
+                        <a href=" {{ route($item['route']) }}">
                             {{ $item['label'] }}
                         </a>
 

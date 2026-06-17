@@ -1,13 +1,19 @@
 @extends('layout.app')
 
-@section('title', 'Company Manegment')
+@section('title')
+    @yield('custom-title')
+@endsection
 @section('header')
-    <x-layout.header title="Dashboard" subtitle="Welcome back" searchRoute="#" logoutRoute="company.logout" />
+    @yield('custom-header')
 @endsection
 @section('aside-bar')
-
     <x-layout.sidebar title="Management" :items="config('sidebar.company')">
 
         {{ auth('company')->user()->Company_name ?? '' }}
     </x-layout.sidebar>
+@endsection
+
+@section('content')
+
+@yield('custom-content')
 @endsection

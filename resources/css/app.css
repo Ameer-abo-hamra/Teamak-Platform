@@ -6,6 +6,8 @@
 @import 'var.css';
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 @import 'toast.css';
+@import 'company-employee.css';
+@import 'pop-up.css' ;
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
@@ -22,4 +24,18 @@ body {
     font-family: "Rubik", sans-serif;
     font-optical-sizing: auto;
 
+}
+
+.app-main {
+    padding: 10px 20px;
+}
+
+.alert {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 99;
+    background: #419af4;
+    padding: 20px;
+    border-radius: 10px;
 }

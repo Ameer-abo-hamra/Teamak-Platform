@@ -12,7 +12,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return      view('company.index');
+        return view('company.index');
     }
 
     /**
@@ -61,5 +61,13 @@ class CompanyController extends Controller
     public function destroy(Company $company)
     {
         //
+    }
+
+
+    public function companyEmployee(Company $c)
+    {
+            $departments = config('departments') ;
+        $employees = auth('company')->user()->employees;
+        return view('company.Employees.index' , compact('departments' , 'employees'));
     }
 }

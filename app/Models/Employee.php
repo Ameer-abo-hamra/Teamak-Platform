@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\AccountStatus;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,14 +11,15 @@ use Illuminate\Notifications\Notifiable;
 class Employee extends Authenticatable
 {
     protected $fillable = [
-        'First_name',
-        'Last_name',
-        'Email',
-        'Phone_number',
-        'Address',
-        'Profile_picture',
-        'Joining_date',
-        'Account_status',
+        'first_name',
+        'last_name',
+        'email',
+        'phone_number',
+        'address',
+        'profile_picture',
+        'joining_date',
+        'account_status',
+        'title',
         'company_id',
     ];
 
@@ -26,6 +28,11 @@ class Employee extends Authenticatable
     {
         return $this->belongsTo(Company::class);
     }
+
+
+    protected $casts = [
+        'account_status' => AccountStatus::class,
+    ];
 }
 
 

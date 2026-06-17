@@ -1,17 +1,35 @@
-function showToast(message, type = "success") {
+// function showToast(message, type = "success") {
 
-    const container = document.getElementById("toast-container");
+import { openModal } from "./modal";
 
-    const toast = document.createElement("div");
+//     const container = document.getElementById("toast-container");
 
-    toast.classList.add("toast");
-    toast.classList.add(`toast-${type}`);
+//     const toast = document.createElement("div");
 
-    toast.textContent = message;
+//     toast.classList.add("toast");
+//     toast.classList.add(`toast-${type}`);
 
-    container.appendChild(toast);
+//     toast.textContent = message;
 
-    setTimeout(() => {
-        toast.remove();
-    }, 5000);
+//     container.appendChild(toast);
+
+//     setTimeout(() => {
+//         toast.remove();
+//     }, 5000);
+// }
+
+
+const openButton = document.getElementById('add-employee');
+const modal = document.getElementById('invite-modal');
+const closeButton = document.getElementById('close-modal');
+
+if (openButton) {
+    openButton.addEventListener('click', () => {
+   
+        openModal('invite-modal');
+
+    });
 }
+
+
+
