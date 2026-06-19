@@ -1,7 +1,8 @@
 import './bootstrap';
 import './js.js';
 import './employee-invitation.js'
-export function showToast(message, type = 'success' , $time =3000) {
+import './employee-search.js'
+export function showToast(message, type = 'success', $time = 3000) {
     const colors = {
         success: '#16a34a',
         error: '#dc2626',

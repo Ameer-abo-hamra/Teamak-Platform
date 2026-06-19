@@ -13,7 +13,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+      return 'hi';
     }
 
     /**
@@ -67,7 +67,12 @@ class EmployeeController extends Controller
     public function acceptInvitation($token)
     {
         $invitation = Invitation::where('invitation_token', $token)->firstOrFail();
+        $data = [
+            'company_id' => $invitation->company->id,
+            'job_title' => $invitation->job_title,
+            'employee_email'=>$invitation->employee_email
+        ];
 
-        return $invitation->company;
+        return view('auth.employee.register', compact('data'));
     }
 }

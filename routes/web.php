@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\CompanyAuth;
+use App\Http\Controllers\Auth\EmployeeAuth;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InvitationController;
@@ -19,9 +20,17 @@ Route::middleware("auth:company")->group(function () {
     Route::get('company-employee', [CompanyController::class, "companyEmployee"])->name("company.employee.index");
     Route::post('/invitations', [InvitationController::class, 'store']);
     Route::post('/logout', [CompanyAuth::class, 'logout'])->name('company.logout');
-
+    Route::get('/employees/search', [CompanyController::class, 'search']);
 });
 
 
 
-Route::get('accept-invitation/{token}' , [EmployeeController::class , 'acceptInvitation'])->name('accept');
+Route::get('accept-invitation/{token}', [EmployeeController::class, 'acceptInvitation'])->name('accept');
+
+Route::get('employee/login', [EmployeeAuth::class, 'login'])->name('employee.login');
+Route::post('employee/register', [EmployeeAuth::class, 'signUp'])->name('employee.register.post');
+Route::middleware('auth:employee')->group(function () {
+
+    Route::resource('employee', EmployeeController::class);
+
+});

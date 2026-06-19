@@ -84,4 +84,6 @@ class CompanyAuth extends Controller
         return redirect()->route('company.login')
             ->with('success', 'Logged out successfully.');
     }
+
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -66,8 +67,25 @@ class CompanyController extends Controller
 
     public function companyEmployee(Company $c)
     {
-            $departments = config('departments') ;
+        $departments = config('departments');
         $employees = auth('company')->user()->employees;
-        return view('company.Employees.index' , compact('departments' , 'employees'));
+        return view('company.Employees.index', compact('departments', 'employees'));
+    }
+    public function search(Request $request)
+    {
+        $employees = Employee::query()
+
+            ->where('first_name', 'like', '%' . $request->search . '%')
+
+            ->orWhere('last_name', 'like', '%' . $request->search . '%')
+
+            ->orWhere('email', 'like', '%' . $request->search . '%')
+
+            ->get();
+
+        return view(
+            'company.employees.partials.table',
+            compact('employees')
+        );
     }
 }

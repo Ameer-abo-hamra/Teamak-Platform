@@ -45,7 +45,7 @@ html {
     width: 40%;
 
     box-shadow: 1px -1px 40px 15px #161f29;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .form-header {
@@ -54,7 +54,14 @@ html {
 
 }
 
-.form-header h1 {
+.form-header p {
+    font-size: 12px;
+    color : #ffac007a;
+
+}
+
+.form-header h1,
+.form-header p {
     opacity: 0;
     transform: translateX(-20px);
 
@@ -108,7 +115,7 @@ html {
     width: 60%;
     margin: auto;
     display: block;
-    font: 13px;
+    font-size: 13px;
 
 }
 

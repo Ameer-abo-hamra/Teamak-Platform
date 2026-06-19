@@ -21,6 +21,7 @@ class Employee extends Authenticatable
         'account_status',
         'title',
         'company_id',
+        'job_title',
     ];
 
 
