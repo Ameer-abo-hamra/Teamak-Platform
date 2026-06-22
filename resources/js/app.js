@@ -2,6 +2,9 @@ import './bootstrap';
 import './js.js';
 import './employee-invitation.js'
 import './employee-search.js'
+import './create-task.js'
+import './projects.search.js'
+import './create-project.js'
 export function showToast(message, type = 'success', $time = 3000) {
     const colors = {
         success: '#16a34a',
@@ -31,14 +34,15 @@ export function showToast(message, type = 'success', $time = 3000) {
     }, $time);
 }
 
+export function getCsrfToken()
+ { return document.querySelector('meta[name="csrf-token"]')?.content; }
 
+// document.addEventListener('click', function (e) {
+//     const closeBtn = e.target.closest('[data-close-modal]');
+   
+//     if (!closeBtn) return;
 
-document.addEventListener('click', function (e) {
-    const closeBtn = e.target.closest('[data-close-modal]');
-    // console.log(closeBtn)
-    if (!closeBtn) return;
+//     const modal = closeBtn.closest('.modal');
 
-    const modal = closeBtn.closest('.modal');
-
-    modal?.classList.remove('show');
-});
+//     modal?.classList.remove('show');
+// });

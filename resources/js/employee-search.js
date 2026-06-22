@@ -3,7 +3,7 @@ const searchInput = document.getElementById('employee-search');
 async function searchEmployees() {
 
     const response = await fetch(
-        `/employees/search?search=${searchInput.value}`
+        `company/employees/search?search=${searchInput.value}`
     );
 
     const html = await response.text();
@@ -13,16 +13,19 @@ async function searchEmployees() {
     ).innerHTML = html;
 }
 
-let timer;
+if (searchInput) {
+    let timer;
 
-searchInput.addEventListener('keyup', () => {
+    searchInput.addEventListener('keyup', () => {
 
-    clearTimeout(timer);
+        clearTimeout(timer);
 
-    timer = setTimeout(() => {
+        timer = setTimeout(() => {
 
-        searchEmployees();
+            searchEmployees();
 
-    }, 500);
+        }, 500);
 
-});
+    });
+
+}

@@ -24,4 +24,17 @@ class Company extends Authenticatable
     {
         return $this->hasMany(Employee::class);
     }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
+    public function tasks()
+    {
+        return $this->hasManyThrough(
+            Task::class,
+            Project::class
+        );
+    }
 }

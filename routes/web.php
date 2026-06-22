@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\EmployeeAuth;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InvitationController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,9 +20,22 @@ Route::middleware("auth:company")->group(function () {
     Route::resource('/company', CompanyController::class);
 
     Route::get('company-employee', [CompanyController::class, "companyEmployee"])->name("company.employee.index");
+
     Route::post('/invitations', [InvitationController::class, 'store']);
+
     Route::post('/logout', [CompanyAuth::class, 'logout'])->name('company.logout');
-    Route::get('/employees/search', [CompanyController::class, 'search']);
+
+    Route::get('company/employees/search', [CompanyController::class, 'search']);
+
+    Route::get('company-projects', [CompanyController::class, 'companyProjects'])->name('company.projects.index');
+
+    Route::get('company/projects/search', [CompanyController::class, 'searchProjects']);
+
+    Route::get('company-tasks' , [CompanyController::class , 'tasks'])->name('company.tasks') ;
+
+    Route::resource('task' , TaskController::class) ; 
+
+    Route::resource('project' , ProjectController::class) ; 
 });
 
 

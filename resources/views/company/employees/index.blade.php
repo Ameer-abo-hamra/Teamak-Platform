@@ -14,7 +14,8 @@
             <span>total 8 , active 2</span>
         </div>
         <div class="right">
-            <button id="add-employee" class="btn-primary"><i class="fa-solid fa-plus"></i>Invite Employee</button>
+            <button id="add-employee" class="btn-primary" data-open-modal="invite-modal"><i class="fa-solid fa-plus"></i>Invite
+                Employee</button>
         </div>
     </div>
 
@@ -41,9 +42,5 @@
         'modal_id' => 'invite-modal',
         'title' => 'Invite New Employe',
     ])
-    <x-modal id='update-employee' title="Update Employee">
 
-
-
-    </x-modal>
 @endsection

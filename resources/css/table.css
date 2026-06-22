@@ -1,0 +1,72 @@
+/* Container */
+
+.data-table-wrapper {
+    margin-top: 20px;
+}
+
+/* Table */
+
+.data-table {
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+/* Head */
+
+.data-table thead {
+    background-color: #ecf0f4;
+}
+
+.data-table thead tr th {
+    text-align: start;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Body */
+
+.data-table tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: all .15s;
+    cursor: pointer;
+}
+
+.data-table tr td,
+.data-table th {
+    padding: 10px;
+}
+
+.data-table tbody tr:hover {
+    background-color: #fffbac73;
+    border-bottom-color: gold;
+}
+
+/* First Cell */
+
+.data-table .first {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.data-table .first .left {
+    padding: 5px;
+    border-radius: 50%;
+    color: white;
+    background: green;
+    margin-right: 10px;
+}
+
+.data-table .first small {
+    color: #6a6f4d;
+}
+
+/* Generic Cells */
+
+.data-table .second,
+.data-table .third {
+    font-size: 14px;
+    font-weight: 200;
+}

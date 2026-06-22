@@ -1,7 +1,7 @@
 import { showToast } from "./app";
 import { closeModal } from "./modal";
 import { getCsrfToken } from "./app";
-const form = document.getElementById('invite-form');
+const form = document.getElementById('create_task');
 
 form?.addEventListener('submit', handleInviteSubmit);
 
@@ -13,7 +13,7 @@ async function handleInviteSubmit(event) {
     );
 
     try {
-        const response = await fetch('/invitations', {
+        const response = await fetch('task', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ async function handleInviteSubmit(event) {
         form.reset();
 
         showToast(data.message, data.type || 'success');
-        closeModal('invite-modal')
+        closeModal('create-task-modal')
 
     } catch (error) {
         if (error.type === 'validation_error') {

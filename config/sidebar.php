@@ -16,11 +16,16 @@ return [
             'label' => 'Employees',
             'route' => 'company.employee.index',
         ],
-        // [
-        //     'icon' => 'fa-solid fa-lock',
-        //     'label' => 'Roles',
-        //     'route' => 'employees.index',
-        // ],
+        [
+            'icon' => 'fa-solid fa-building-flag',
+            'label' => 'Projects',
+            'route' => 'company.projects.index',
+        ],
+        [
+            'icon' => 'fa-solid fa-clipboard-list',
+            'label' => 'Tasks',
+            'route' => 'company.tasks',
+        ],
     ],
 
 ];

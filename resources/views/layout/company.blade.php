@@ -14,6 +14,5 @@
 @endsection
 
 @section('content')
-
-@yield('custom-content')
+    @yield('custom-content')
 @endsection
