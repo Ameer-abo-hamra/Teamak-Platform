@@ -52,7 +52,7 @@ class TaskController extends Controller
                 'title' => $request->title,
                 'description' => $request->description,
 
-                'task_status' => $request->task_status,
+
                 'priority' => $request->priority,
 
                 'project_id' => $request->project_id,

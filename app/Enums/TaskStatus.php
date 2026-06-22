@@ -3,11 +3,11 @@
 namespace App\Enums;
 enum TaskStatus: string
 {
-    case TODO = 'to-do';
-    case INPROGRESS = 'in-progress';
-    case INREVIEW = 'in-review';
+    case TODO = 'To-do';
+    case INPROGRESS = 'In-progress';
+    case INREVIEW = 'In-review';
 
-    case DONE = 'done';
+    case DONE = 'Done';
     public static function labels(): array
     {
         return array_column(

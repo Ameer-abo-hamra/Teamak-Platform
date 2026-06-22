@@ -15,7 +15,7 @@ return new class extends Migration {
         Schema::table('tasks', function (Blueprint $table) {
             $table->string('title');
             $table->string('description');
-            $table->enum('task_status', TaskStatus::labels())->default(TaskStatus::TODO);
+            $table->enum('task_status', TaskStatus::labels())->default(TaskStatus::TODO->value);
             $table->foreignId('project_id')->references('id')->on('projects');
 
         });

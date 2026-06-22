@@ -60,11 +60,12 @@
 
                         <span
                             class="
-                                {{ $task->priority?->value === 'high' ? 'p-high' : '' }}
-                                {{ $task->priority?->value === 'medium' ? 'p-medium' : '' }}
-                                {{ $task->priority?->value === 'low' ? 'p-low' : '' }}
-                            ">
-                            {{ ucfirst($task->priority?->value ?? '-') }}
+        {{ $task->priority?->value === App\Enums\TaskPriority::LOW->value ? 'p-low' : '' }}
+        {{ $task->priority?->value === App\Enums\TaskPriority::MEDIUM->value ? 'p-medium' : '' }}
+        {{ $task->priority?->value === App\Enums\TaskPriority::HIGH->value ? 'p-high' : '' }}
+        {{ $task->priority?->value === App\Enums\TaskPriority::CRITICAL->value ? 'p-critical' : '' }}
+    ">
+                            {{ $task->priority?->value ?? '-' }}
                         </span>
 
                     </td>
@@ -74,18 +75,19 @@
 
                         <span
                             class="
-                                {{ $task->status?->value === 'completed' ? 's-completed' : '' }}
-                                {{ $task->status?->value === 'active' ? 's-active' : '' }}
-                                {{ $task->status?->value === 'pending' ? 's-on-hold' : '' }}
-                            ">
-                            {{ ucfirst($task->status?->value ?? '-') }}
+        {{ $task->task_status?->value === App\Enums\TaskStatus::TODO->value ? 's-todo' : '' }}
+        {{ $task->task_status?->value === App\Enums\TaskStatus::INPROGRESS->value ? 's-active' : '' }}
+        {{ $task->task_status?->value === App\Enums\TaskStatus::INREVIEW->value ? 's-on-hold' : '' }}
+        {{ $task->task_status?->value === App\Enums\TaskStatus::DONE->value ? 's-completed' : '' }}
+    ">
+                            {{ $task->task_status?->value ?? '-' }}
                         </span>
 
                     </td>
 
                     {{-- Due Date --}}
                     <td class="second">
-                        {{ $task->due_date ?? '-' }}
+                        {{ $task->end_date ?? '-' }}
                     </td>
 
                     {{-- Actions --}}

@@ -70,3 +70,61 @@
     font-size: 14px;
     font-weight: 200;
 }
+
+/* Priority */
+
+.p-low {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.p-medium {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.p-high {
+    background: #fed7aa;
+    color: #c2410c;
+}
+
+.p-critical {
+    background: #fecaca;
+    color: #b91c1c;
+}
+
+/* Status */
+
+.s-todo {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.s-active {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.s-on-hold {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.s-completed {
+    background: #e9d5ff;
+    color: #7e22ce;
+}
+
+.p-low,
+.p-medium,
+.p-high,
+.p-critical,
+.s-todo,
+.s-active,
+.s-on-hold,
+.s-completed {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+}

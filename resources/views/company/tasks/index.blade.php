@@ -77,6 +77,11 @@
 
             {{-- Due Date --}}
             <div class="invitation-input f-b-100">
+                <label for="due_date"> Start Date</label>
+
+                <input id="due_date" type="date" name="start_date" />
+            </div>
+            <div class="invitation-input f-b-100">
                 <label for="due_date">Due Date:</label>
 
                 <input id="due_date" type="date" name="end_date" />

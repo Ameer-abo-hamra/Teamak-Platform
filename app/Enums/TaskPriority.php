@@ -4,11 +4,11 @@ namespace App\Enums;
 
 enum TaskPriority: string
 {
-    case LOW = 'low';
-    case MEDIUM = 'medium';
-    case HIGH = 'high';
+    case LOW = 'Low';
+    case MEDIUM = 'Medium';
+    case HIGH = 'High';
 
-    case CRITICAL = 'critical';
+    case CRITICAL = 'Critical';
     public static function labels(): array
     {
         return array_column(
