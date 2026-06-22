@@ -73,7 +73,7 @@ class CompanyController extends Controller
     {
         $departments = config('departments');
         $employees = auth('company')->user()->employees;
-        return view('company.Employees.index', compact('departments', 'employees'));
+        return view('company.employees.index', compact('departments', 'employees'));
     }
     public function search(Request $request)
     {
