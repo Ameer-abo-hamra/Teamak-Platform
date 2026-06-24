@@ -5,7 +5,8 @@ namespace App\Providers;
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ResendTransport;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -41,5 +42,6 @@ class AppServiceProvider extends ServiceProvider
         if (env('APP_ENV') === 'production') {
             URL::forceScheme('https');
         }
+
     }
 }

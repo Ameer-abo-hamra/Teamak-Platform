@@ -86,3 +86,85 @@
 .color-gray {
     color: gray;
 }
+
+.top-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.top-card .left {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-basis: 80%;
+}
+
+.top-card .left .logo {
+    background-color: var(--button-bg-color);
+    padding: 14px 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    border: none;
+    font-weight: 700;
+}
+
+.top-card .left .title {
+
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    column-gap: 10px;
+
+}
+
+.top-card .left .title .project-description {
+    color: #888;
+    margin-left: 10px;
+    flex-basis: 100%;
+}
+
+.top-card .bottom {
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-top: 1px solid #c1c1c157;
+    padding-top: 10px;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.top-card .bottom .progress {
+    display: block;
+    padding: 10px;
+    flex-basis: 100%;
+    position: relative;
+    margin-top: 10px;
+}
+
+.top-card .bottom .back-progress {
+    width: 100%;
+    display: block;
+    height: 8px;
+    background: #e8edf5;
+    border-radius: 99px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.top-card .bottom .calc-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 99px;
+    width: 72%;
+    height: 8px;
+    background-color: var(--button-bg-color);
+}

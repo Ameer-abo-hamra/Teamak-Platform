@@ -88,9 +88,9 @@
                         </span>
 
                         {{-- Reuses shared action styles --}}
-                        <span class="show-row">
+                        <a href="{{ route('project.show', $project) }}" class="show-row">
                             <i class="fa-regular fa-eye"></i>
-                        </span>
+                        </a>
 
                     </td>
 

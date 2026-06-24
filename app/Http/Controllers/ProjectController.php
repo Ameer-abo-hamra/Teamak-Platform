@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\TaskStatus;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -58,7 +59,7 @@ class ProjectController extends Controller
                 'project_status' => $request->project_status,
             ]);
 
-        
+
 
             // 5. Response
             return response()->json([
@@ -77,7 +78,7 @@ class ProjectController extends Controller
 
         } catch (\Exception $e) {
 
-        
+
 
             return response()->json([
                 'message' => $e->getMessage(),
@@ -91,7 +92,15 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        $data = [
+            'allTasks' => $project->tasks()->count(),
+            'completedTasks' => $project->tasks()
+                ->where('task_status', TaskStatus::DONE)
+                ->count(),
+            'employees' => auth('company')->user()->employees->pluck('first_name', 'id')
+        ];
+
+        return view('company.projects.show', compact('project', 'data'));
     }
 
     /**

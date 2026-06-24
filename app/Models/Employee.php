@@ -30,7 +30,10 @@ class Employee extends Authenticatable
         return $this->belongsTo(Company::class);
     }
 
-
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class);
+    }
     protected $casts = [
         'account_status' => AccountStatus::class,
     ];

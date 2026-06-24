@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Notifications\EmployeeInvitation;
 use Illuminate\Http\Request;
 use Log;
+use Mail;
 use Notification;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
@@ -44,8 +45,7 @@ class InvitationController extends Controller
             ]);
 
 
-            $invitationLink = url('/accept-invitation/' . $token);
-
+            $invitationLink = route('accept', $token);
 
 
 
@@ -54,11 +54,9 @@ class InvitationController extends Controller
                     $invitationLink,
                     $company->Company_name,
                     $request->job_title,
-                    $request->department_id
-                    ,
+                    $request->department_id,
                     $request->description ?? "",
                 ));
-
             Log::info('Invitation email sent', [
                 'email' => $email,
             ]);

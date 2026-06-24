@@ -4,7 +4,10 @@
 @endsection
 
 @section('custom-content') <div class="porject-container">
-    <div class="header"> @include('company.projects.partials.content-header', [
+    <div class="header">
+
+
+        @include('company.projects.partials.content-header', [
         'active' => $active,
         'completed' => $completed,
         'all' => $all,

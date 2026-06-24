@@ -21,7 +21,10 @@ class Project extends Model
     {
         return $this->hasMany(Task::class);
     }
-
+    public function employees()
+    {
+        return $this->belongsToMany(Employee::class);
+    }
     protected $casts = [
         'project_status' => ProjectStatus::class,
     ];

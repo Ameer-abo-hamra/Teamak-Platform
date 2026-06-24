@@ -33,9 +33,9 @@ Route::middleware("auth:company")->group(function () {
 
     Route::get('company-tasks' , [CompanyController::class , 'tasks'])->name('company.tasks') ;
 
-    Route::resource('task' , TaskController::class) ; 
+    Route::resource('task' , TaskController::class) ;
 
-    Route::resource('project' , ProjectController::class) ; 
+    Route::resource('project' , ProjectController::class) ;
 });
 
 
