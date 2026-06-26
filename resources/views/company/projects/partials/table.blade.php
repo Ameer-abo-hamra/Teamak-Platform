@@ -7,7 +7,7 @@
         <thead>
             <tr>
                 <th>Project</th>
-                <th>Department</th>
+                <th>Tasks</th>
                 <th>Progress</th>
                 <th>Status</th>
                 <th>Deadline</th>
@@ -19,10 +19,10 @@
         <tbody id="projects-tbody">
 
             @forelse($projects as $project)
-                <tr>
+                <tr data-project-row-id="{{ $project->id }}">
 
                     {{-- Project --}}
-                    <td class="first">
+                    <td class="first project-info">
 
                         {{-- Reuses the shared avatar style from table.css --}}
                         <div class="left">
@@ -39,25 +39,23 @@
 
                     </td>
 
-                    {{-- CHANGED: Added class="third" to reuse generic text styling --}}
                     <td class="third">
                         <span>
-                            {{ $project->department->name ?? '-' }}
+                            {{ $project->tasks_count ?? 0 }}
                         </span>
                     </td>
 
-                    {{-- CHANGED: Added class="second" to reuse generic text styling --}}
                     <td class="second">
                         <span>
-                            {{ $project->progress }}%
+                            {{ $project->tasks_count > 0 ? round(($project->completed_tasks_count / $project->tasks_count) * 100) : 0 }}%
                         </span>
                     </td>
 
                     {{-- Status --}}
-                    <td>
+                    <td class="project-status-cell">
 
                         <span
-                            class="
+                            class="project-status
                                 {{ $project->project_status->value == App\Enums\ProjectStatus::ACTIVE->value ? 's-active' : '' }}
                                 {{ $project->project_status->value == App\Enums\ProjectStatus::COMPLETED->value ? 's-completed' : '' }}
                                 {{ $project->project_status->value == App\Enums\ProjectStatus::ONHOLD->value ? 's-on-hold' : '' }}
@@ -70,7 +68,7 @@
                     </td>
 
                     {{-- CHANGED: Added class="second" to reuse generic text styling --}}
-                    <td class="second fs-14 color-gray">
+                    <td class="second fs-14 color-gray project-deadline">
                         {{ $project->end_date }}
                     </td>
 
@@ -81,17 +79,13 @@
 
                     {{-- Actions --}}
                     <td>
-
-                        {{-- Reuses shared action styles --}}
-                        <span class="update">
+                        <button type="button" class="update" data-edit-modal="edit-project-modal" data-url="{{ route('project.show', $project) }}" data-endpoint="{{ route('project.update', $project) }}">
                             <i class="fa-regular fa-pen-to-square"></i>
-                        </span>
+                        </button>
 
-                        {{-- Reuses shared action styles --}}
                         <a href="{{ route('project.show', $project) }}" class="show-row">
                             <i class="fa-regular fa-eye"></i>
                         </a>
-
                     </td>
 
                 </tr>

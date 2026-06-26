@@ -4,7 +4,9 @@ import './employee-invitation.js'
 import './employee-search.js'
 import './create-task.js'
 import './projects.search.js'
+import './tasks-search.js'
 import './create-project.js'
+import './update-modal.js'
 export function showToast(message, type = 'success', $time = 3000) {
     const colors = {
         success: '#16a34a',
@@ -39,7 +41,7 @@ export function getCsrfToken()
 
 // document.addEventListener('click', function (e) {
 //     const closeBtn = e.target.closest('[data-close-modal]');
-   
+
 //     if (!closeBtn) return;
 
 //     const modal = closeBtn.closest('.modal');

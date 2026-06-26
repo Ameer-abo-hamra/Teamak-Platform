@@ -81,7 +81,45 @@
                 </form>
 
             </x-modal>
+
+            <x-modal id="edit-project-modal" title="Edit Project">
+                <form class="d-flex-2-col ajax-update" data-endpoint="" data-method="POST">
+                    @csrf
+                    @method('PUT')
+
+                    <div class="invitation-input f-b-100">
+                        <label for="title">Project Title:</label>
+                        <input id="title" name="title" />
+                    </div>
+
+                    <div class="invitation-input f-b-100">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description"></textarea>
+                    </div>
+
+                    <div class="invitation-input">
+                        <label for="start_date">Start Date:</label>
+                        <input type="date" name="start_date" id="start_date" />
+                    </div>
+
+                    <div class="invitation-input">
+                        <label for="end_date">End Date:</label>
+                        <input type="date" name="end_date" id="end_date" />
+                    </div>
+
+                    <div class="invitation-input f-b-100">
+                        <label for="project_status">Status:</label>
+                        <x-form.select id="project_status" name="project_status" :options="App\Enums\ProjectStatus::labels()" />
+                    </div>
+
+                    <div class="submit f-b-100">
+                        <button type="submit" class="btn-primary">Update Project</button>
+                    </div>
+                </form>
+            </x-modal>
         </div>
-        <div class="employee-table" id="projects-table"> @include('company.projects.partials.table', [$projects, $completed, $all]) </div>
+        <div class="employee-table" id="projects-table">
+            @include('company.projects.partials.table', ['projects' => $projects])
+        </div>
     </div>
 </div> @endsection

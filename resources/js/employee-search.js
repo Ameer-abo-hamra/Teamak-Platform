@@ -1,31 +1,37 @@
-const searchInput = document.getElementById('employee-search');
+document.addEventListener('DOMContentLoaded', () => {
 
-async function searchEmployees() {
+    const searchInput = document.getElementById('employee-search');
+    const departmentFilter = document.getElementById('department-filter');
+    const statusFilter = document.getElementById('status-filter');
+console.log(departmentFilter , statusFilter)
+    async function searchEmployees() {
+        const params = new URLSearchParams();
 
-    const response = await fetch(
-        `company/employees/search?search=${searchInput.value}`
-    );
+        if (searchInput?.value) params.append('search', searchInput.value);
+        if (departmentFilter?.value) params.append('department', departmentFilter.value);
+        if (statusFilter?.value) params.append('status', statusFilter.value);
 
-    const html = await response.text();
+        const response = await fetch(`/company-employees-search?${params.toString()}`);
 
-    document.getElementById(
-        'employee-table'
-    ).innerHTML = html;
-}
+        const html = await response.text();
 
-if (searchInput) {
-    let timer;
+        document.getElementById('employee-table').innerHTML = html;
+    }
 
-    searchInput.addEventListener('keyup', () => {
+    if (searchInput) {
+        let timer;
 
-        clearTimeout(timer);
+        searchInput.addEventListener('keyup', () => {
+            clearTimeout(timer);
+            timer = setTimeout(searchEmployees, 500);
+        });
+    }
 
-        timer = setTimeout(() => {
-
+    [departmentFilter, statusFilter].forEach(filter => {
+        filter?.addEventListener('change', () => {
+            console.log('filter changed');
             searchEmployees();
-
-        }, 500);
-
+        });
     });
 
-}
+});

@@ -21,20 +21,16 @@
 
     <div class="search-employee">
 
-        <!-- Search Input -->
-        <input type="text" id="employee-search" name="search" placeholder="search by name email ..">
+        <input type="text" id="employee-search" placeholder="search by name email ..">
 
+        <x-form.select id="department-filter" name="department" :options="$departments" />
 
-
-        <x-form.select name="ameer" :options="$departments" />
-
-        <x-form.select name="test" :options="App\Enums\AccountStatus::labels()" />
-
+        <x-form.select id="status-filter" name="status" :options="App\Enums\AccountStatus::labels()" />
     </div>
 
     <div class="employee-table" id="employee-table">
 
-        @include('company.employees.partials.table', [$employees])
+        @include('company.employees.partials.table', ['employees' => $employees])
 
     </div>
 
@@ -42,5 +38,41 @@
         'modal_id' => 'invite-modal',
         'title' => 'Invite New Employe',
     ])
+
+    <x-modal id="edit-employee-modal" title="Edit Employee">
+        <form class="d-flex-2-col ajax-update" data-endpoint="" data-method="POST">
+            @csrf
+            @method('PUT')
+
+            <div class="invitation-input">
+                <label for="first_name">First Name</label>
+                <input id="first_name" name="first_name" />
+            </div>
+
+            <div class="invitation-input">
+                <label for="last_name">Last Name</label>
+                <input id="last_name" name="last_name" />
+            </div>
+
+            <div class="invitation-input">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" />
+            </div>
+
+            <div class="invitation-input">
+                <label for="phone_number">Phone</label>
+                <input id="phone_number" name="phone_number" />
+            </div>
+
+            <div class="invitation-input f-b-100">
+                <label for="account_status">Status</label>
+                <x-form.select id="account_status" name="account_status" :options="App\Enums\AccountStatus::labels()" />
+            </div>
+
+            <div class="submit f-b-100">
+                <button type="submit" class="btn-primary">Update Employee</button>
+            </div>
+        </form>
+    </x-modal>
 
 @endsection

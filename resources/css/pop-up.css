@@ -155,7 +155,11 @@ textarea {
 }
 
 .submit button {
-    width: 100%;
+    width: fit-content;
     padding: 10px;
     border-radius: 10px;
 }
+
+/*
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'address' cannot be null (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: laravel, SQL: update `employees` set `address` = ?, `joining_date` = ?, `account_status` = inactive, `job_title` = ?, `employees`.`updated_at` = 2026-06-26 16:40:05 where `id` = 1)
+*/

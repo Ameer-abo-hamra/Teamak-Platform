@@ -13,7 +13,7 @@ async function handleInviteSubmit(event) {
     );
 
     try {
-        const response = await fetch('project', {
+        const response = await fetch('/project', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ function addProjectToTable(project) {
 
         <td>
             <span class="s-active">
-                ${project.status}
+                ${project.project_status ?? ''}
             </span>
         </td>
 
@@ -86,13 +86,13 @@ function addProjectToTable(project) {
         </td>
 
         <td>
-            <span class="update">
+            <a href="/project/${project.id}/edit" class="update">
                 <i class="fa-regular fa-pen-to-square"></i>
-            </span>
+            </a>
 
-            <span class="show-row">
+            <a href="/project/${project.id}" class="show-row">
                 <i class="fa-regular fa-eye"></i>
-            </span>
+            </a>
         </td>
     `;
 

@@ -19,7 +19,22 @@
             <ul>
 
                 @foreach ($items as $item)
-                    <li class="{{ request()->routeIs($item['route']) ? 'active' : '' }}">
+                    @php
+                        $routePattern = $item['route'];
+                        $isActive = false;
+
+                        // Check exact route or parent routes
+                        if (request()->routeIs($routePattern)) {
+                            $isActive = true;
+                        } elseif ($routePattern === 'company.employee.index' && request()->routeIs('company.employee.*')) {
+                            $isActive = true;
+                        } elseif ($routePattern === 'company.projects.index' && request()->routeIs(['project.*', 'company.projects.*'])) {
+                            $isActive = true;
+                        } elseif ($routePattern === 'company.tasks' && request()->routeIs(['task.*', 'company.tasks*'])) {
+                            $isActive = true;
+                        }
+                    @endphp
+                    <li class="{{ $isActive ? 'active' : '' }}">
 
                         <i class="{{ $item['icon'] }}"></i>
 

@@ -17,10 +17,10 @@
 
             @forelse($employees as $employee)
 
-                <tr>
+                <tr data-employee-row-id="{{ $employee->id }}">
 
                     {{-- Employee --}}
-                    <td class="first">
+                    <td class="first employee-info">
 
                         <div class="left">
                             <p>
@@ -37,7 +37,7 @@
                     </td>
 
                     {{-- Title --}}
-                    <td class="second">
+                    <td class="second employee-title">
                         {{ $employee->job_title ?? '-' }}
                     </td>
 
@@ -56,28 +56,22 @@
                     </td>
 
                     {{-- Status --}}
-                    <td>
+                    <td class="employee-status">
                         <span
-                            class="{{ $employee->account_status->value == App\Enums\AccountStatus::ACTIVE->value ? 's-active' : 's-in-active' }}">
+                            class="employee-status-badge {{ $employee->account_status->value == App\Enums\AccountStatus::ACTIVE->value ? 's-active' : 's-in-active' }}">
                             {{ $employee->account_status->value }}
                         </span>
                     </td>
 
                     {{-- Actions --}}
                     <td>
-
-                        {{-- <span class="delete">
-                            <i class="fa-regular fa-trash-can"></i>
-                        </span> --}}
-
-                        <span class="update">
+                        <button type="button" class="update" data-edit-modal="edit-employee-modal" data-url="{{ route('company.employee.show', $employee) }}" data-endpoint="{{ route('company.employee.update', $employee) }}">
                             <i class="fa-regular fa-pen-to-square"></i>
-                        </span>
+                        </button>
 
-                        <span class="show-row">
+                        <a href="{{ route('company.employee.show', $employee) }}" class="show-row">
                             <i class="fa-regular fa-eye"></i>
-                        </span>
-
+                        </a>
                     </td>
 
                 </tr>

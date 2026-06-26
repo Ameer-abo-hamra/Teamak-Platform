@@ -10,6 +10,7 @@
 @import 'pop-up.css';
 @import 'projects.css';
 @import 'table.css';
+@import 'show.css';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
@@ -45,4 +46,36 @@ body {
     background: #419af4;
     padding: 20px;
     border-radius: 10px;
+}
+
+button.update {
+
+    border: none;
+    background: transparent;
+
+}
+
+span.s-to-do {
+    padding: 4px 9px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #80808070;
+    color: #000000ad;
+}
+
+span.s-in-review {
+    padding: 4px 9px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0080003d;
+    color: #008000a1;
+    width: 75px;
 }

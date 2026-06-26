@@ -104,5 +104,57 @@
         </form>
 
     </x-modal>
-    @include('company.tasks.partials.table', [$tasks])
+
+    <x-modal id="edit-task-modal" title="Edit Task">
+        <form class="d-flex-2-col ajax-update" data-endpoint="" data-method="POST">
+            @csrf
+            @method('PUT')
+
+            <div class="invitation-input f-b-100">
+                <label for="title">Task Title:</label>
+                <input id="title" name="title" />
+            </div>
+
+            <div class="invitation-input">
+                <label for="project_id">Project</label>
+                <x-form.select id="project_id" name="project_id" :options="$projects" />
+            </div>
+
+            <div class="invitation-input">
+                <label for="employee_id">Assign To:</label>
+                <x-form.select id="employee_id" name="employee_id" :options="$employees" />
+            </div>
+
+            <div class="invitation-input">
+                <label for="priority">Priority</label>
+                <x-form.select id="priority" name="priority" :options="App\Enums\TaskPriority::labels()" />
+            </div>
+
+            <div class="invitation-input">
+                <label for="task_status">Status</label>
+                <x-form.select id="task_status" name="task_status" :options="App\Enums\TaskStatus::labels()" />
+            </div>
+
+            <div class="invitation-input f-b-100">
+                <label for="start_date">Start Date</label>
+                <input id="start_date" type="date" name="start_date" />
+            </div>
+
+            <div class="invitation-input f-b-100">
+                <label for="end_date">Due Date</label>
+                <input id="end_date" type="date" name="end_date" />
+            </div>
+
+            <div class="invitation-input f-b-100">
+                <label for="description">Description</label>
+                <textarea id="description" name="description"></textarea>
+            </div>
+
+            <div class="submit f-b-100">
+                <button type="submit" class="btn-primary">Update Task</button>
+            </div>
+        </form>
+    </x-modal>
+
+    @include('company.tasks.partials.table', ['tasks' => $tasks])
 @endsection

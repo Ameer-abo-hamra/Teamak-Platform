@@ -3,10 +3,7 @@
 namespace App\Models;
 
 use App\Enums\AccountStatus;
-use Database\Factories\UserFactory;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class Employee extends Authenticatable
 {
@@ -24,7 +21,6 @@ class Employee extends Authenticatable
         'job_title',
     ];
 
-
     public function company()
     {
         return $this->belongsTo(Company::class);
@@ -34,10 +30,13 @@ class Employee extends Authenticatable
     {
         return $this->belongsToMany(Project::class);
     }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
     protected $casts = [
         'account_status' => AccountStatus::class,
     ];
 }
-
-
-

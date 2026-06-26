@@ -17,10 +17,10 @@
         <tbody>
 
             @forelse($tasks as $task)
-                <tr>
+                <tr data-task-row-id="{{ $task->id }}">
 
                     {{-- Task --}}
-                    <td class="first">
+                    <td class="first task-info">
 
                         <div class="left">
                             <p>
@@ -41,7 +41,7 @@
                     </td>
 
                     {{-- Project --}}
-                    <td class="third">
+                    <td class="third task-project">
                         <span>
                             {{ $task->project?->title ?? '-' }}
                         </span>
@@ -75,9 +75,9 @@
 
                         <span
                             class="
-        {{ $task->task_status?->value === App\Enums\TaskStatus::TODO->value ? 's-todo' : '' }}
+        {{ $task->task_status?->value === App\Enums\TaskStatus::TODO->value ? 's-to-do' : '' }}
         {{ $task->task_status?->value === App\Enums\TaskStatus::INPROGRESS->value ? 's-active' : '' }}
-        {{ $task->task_status?->value === App\Enums\TaskStatus::INREVIEW->value ? 's-on-hold' : '' }}
+        {{ $task->task_status?->value === App\Enums\TaskStatus::INREVIEW->value ? 's-in-review' : '' }}
         {{ $task->task_status?->value === App\Enums\TaskStatus::DONE->value ? 's-completed' : '' }}
     ">
                             {{ $task->task_status?->value ?? '-' }}
@@ -92,15 +92,15 @@
 
                     {{-- Actions --}}
                     <td>
-
-                        <span class="update">
+                        <button type="button" class="update" data-edit-modal="edit-task-modal"
+                            data-url="{{ route('task.show', $task) }}"
+                            data-endpoint="{{ route('task.update', $task) }}">
                             <i class="fa-regular fa-pen-to-square"></i>
-                        </span>
+                        </button>
 
-                        <span class="show-row">
+                        <a href="{{ route('task.show', $task) }}" class="show-row">
                             <i class="fa-regular fa-eye"></i>
-                        </span>
-
+                        </a>
                     </td>
 
                 </tr>
