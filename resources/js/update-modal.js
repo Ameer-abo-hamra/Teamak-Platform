@@ -137,16 +137,18 @@ document.addEventListener('click', async (e) => {
 
             const data = await res.json();
             if (!modal) return;
-
             Object.keys(data).forEach((key) => {
                 applyValueToField(modal, key, data[key]);
+
             });
             modal.classList.add('show');
             return;
         }
 
         if (modal) {
+            console.log("hi");
             const dataset = btn.dataset;
+            console.log("dataset", dataset);
             Object.keys(dataset).forEach((key) => {
                 if (['editModal', 'url', 'method', 'endpoint'].includes(key)) return;
                 applyValueToField(modal, key, dataset[key]);

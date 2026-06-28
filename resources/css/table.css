@@ -115,9 +115,15 @@
     color: #b45309;
 }
 
-.s-completed {
-    background: #e9d5ff;
-    color: #7e22ce;
+.s-in-progress {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.s-done {
+    background: #0080002b;
+    color: #008000e8;
+    border: 1px solid green;
 }
 
 .p-low,
@@ -127,8 +133,9 @@
 .s-todo,
 .s-active,
 .s-on-hold,
-.s-completed,
-.s-done{
+.s-done,
+.s-done,
+.s-in-progress {
     padding: 4px 10px;
     border-radius: 999px;
     font-size: 12px;

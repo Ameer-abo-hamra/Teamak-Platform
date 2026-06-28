@@ -75,7 +75,7 @@ span.s-in-review {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #0080003d;
-    color: #008000a1;
-    width: 75px;
+    background: #0000ff24;
+    color: #0000ffa1;
+    min-width: 75px;
 }

@@ -76,9 +76,10 @@
                         <span
                             class="
         {{ $task->task_status?->value === App\Enums\TaskStatus::TODO->value ? 's-to-do' : '' }}
-        {{ $task->task_status?->value === App\Enums\TaskStatus::INPROGRESS->value ? 's-active' : '' }}
+        {{ $task->task_status?->value === App\Enums\TaskStatus::INPROGRESS->value ? 's-in-progress' : '' }}
         {{ $task->task_status?->value === App\Enums\TaskStatus::INREVIEW->value ? 's-in-review' : '' }}
-        {{ $task->task_status?->value === App\Enums\TaskStatus::DONE->value ? 's-completed' : '' }}
+
+        {{ $task->task_status?->value === App\Enums\TaskStatus::DONE->value ? 's-done' : '' }}
     ">
                             {{ $task->task_status?->value ?? '-' }}
                         </span>

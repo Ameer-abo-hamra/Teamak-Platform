@@ -64,6 +64,21 @@
                 <input id="phone_number" name="phone_number" />
             </div>
 
+            <div class="invitation-input">
+                <label for="job_title">Job Title</label>
+                <input id="job_title" name="job_title" />
+            </div>
+
+            <div class="invitation-input">
+                <label for="address">Address</label>
+                <input id="address" name="address" />
+            </div>
+
+            <div class="invitation-input">
+                <label for="joining_date">Joining Date</label>
+                <input id="joining_date" type="date" name="joining_date" />
+            </div>
+
             <div class="invitation-input f-b-100">
                 <label for="account_status">Status</label>
                 <x-form.select id="account_status" name="account_status" :options="App\Enums\AccountStatus::labels()" />
